@@ -28,6 +28,7 @@ export class ProductComponent {
 
   ngOnInit(){
     this.getProduct();
+    this.helper.headerFlag.next(true);
   }
   
   /**

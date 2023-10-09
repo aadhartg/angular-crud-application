@@ -35,7 +35,7 @@ export class RegisterComponent {
       "email":this.registerForm.value.email,
       "pass": this.registerForm.value.password
     }
-    this.helper.post(url,data).subscribe((res: any) => {
+    this.helper.post(`${this.env.BASE_URL}${url}`,data).subscribe((res: any) => {
       if(res){
         localStorage.setItem('Token', JSON.stringify(res.token));
         this.router.navigate(['/login']);

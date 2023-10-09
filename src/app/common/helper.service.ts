@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { throwError } from 'rxjs';
+import { BehaviorSubject, throwError } from 'rxjs';
 import { Environment } from 'src/environment';
 
 @Injectable({
@@ -9,6 +9,7 @@ import { Environment } from 'src/environment';
 })
 export class HelperService {
 
+  headerFlag = new BehaviorSubject(false);
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

@@ -16,8 +16,8 @@ export class LoginComponent {
     private env:Environment,
     private helper: HelperService
   ) {     
-    localStorage.removeItem('Token');
-    this.loginForm = new FormGroup({
+      localStorage.removeItem('Token');
+      this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     });
@@ -36,6 +36,7 @@ export class LoginComponent {
       localStorage.setItem('Token', JSON.stringify(res.token));
       localStorage.setItem('userName', res.user.name);
       this.router.navigate(['/product']);
+      this.helper.headerFlag.next(true);
     });
   }
 
